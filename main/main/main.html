@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap & Swiper Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .swiper-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 15px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 120%;
+            height: auto;
+            max-height: 80%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .swiper-slide .text-container {
+            text-align: center;
+            padding: 10px;
+            background-color: #fff;
+            width: 100%;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .swiper-slide .text-container p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .swiper-slide .text-container .description {
+            font-weight: bold;
+        }
+
+        .swiper-slide .text-container img {
+            width: 50px;
+            height: auto;
+            margin: 5px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #ffffff;
+        }
+
+        .add-to-favorites {
+            font-size: 24px;
+            color: #ff6f61;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-to-favorites i {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">WORKOUT💪</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://map.naver.com/p/search/%ED%97%AC%EC%8A%A4%EC%9E%A5?searchType=place&c=14.00,0,0,0,dh"
+                                target="_blank">헬스장찾기</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" target="_blank">회원가입</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" target="_blank">로그인</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                정보관리
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">회원정보수정</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:5500/jjim.html">찜영상</a></li>
+                                <li><a class="dropdown-item" href="#">내가쓴리뷰</a></li>
+                                <li><a class="dropdown-item" href="#">팔로우</a></li>
+                                <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">비밀번호 찾기</a></li> -->
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">@SSAFIT</a>
+                        </li>
+                    </ul>
+                    <form id="searchForm" class="d-flex" role="search">
+                        <input id="searchInput" class="form-control me-2" type="search" placeholder="부위 검색"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <h2>헬린이를 위한</h2>
+        <!-- Swiper 슬라이드 -->
+        <div class="swiper-container">
+            <div class="swiper mySwiper1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=8SBBp65Sv3c" target="_blank">
+                            <img src="img1.png" alt="뚫고 나오는 등 만들고 싶으면 이거 봐">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">뚫고 나오는 등 만들고 싶으면 이거 봐</p>
+                            <img src="등.png" alt="등 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="1">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=zwTZfUfxRA0" target="_blank">
+                            <img src="img2.png" alt="두혁아, 전화 왜 안 받아? 하체 해야지.">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">두혁아, 전화 왜 안 받아? 하체 해야지.</p>
+                            <img src="하체.png" alt="하체 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="2">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=HCnDDAMDKps" target="_blank">
+                            <img src="img3.png" alt="어깨후면.. 저는 이렇게 합니다..">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">어깨후면...　저는 이렇게 합니다...　　</p>
+                            <img src="어깨.png" alt="어깨 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="3">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=zVwi6hstFnA" target="_blank">
+                            <img src="img4.png" alt="[TMI] 한마바키 실물 체험 #44">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">[TMI] 한마바키 실물 체험 #44</p>
+                            <img src="복근.png" alt="복근 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="4">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=ONJ-3U3JpUI" target="_blank">
+                            <img src="img5.png" alt="동탄왕팔 만든 솔로 이두 운동">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">동탄왕팔 만든 솔로 이두 운동</p>
+                            
+                            <img src="팔.png" alt="팔 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="5">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+                <div class="swiper-button-next swiper-button-next1"></div>
+                <div class="swiper-button-prev swiper-button-prev1"></div>
+            </div>
+        </div>
+
+        <h2>헬창을 위한</h2>
+        <!-- Swiper 슬라이드 -->
+        <div class="swiper-container">
+            <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=JsF2nzetLBU" target="_blank">
+                            <img src="img_easy1.png" alt="👑조회수 ‘8,000,000’ 찍은👑전설의 팔뚝살빼는운동 7분 리뉴얼 버전">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">👑조회수 ‘8,000,000’ 찍은👑전설의 팔뚝살빼는운동 7분 리뉴얼 버전</p>
+                            <img src="팔.png" alt="팔 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="6">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=oB-PmMdKAVA" target="_blank">
+                            <img src="img_easy2.png" alt="단기간 최고의 힙업운동 BEST5 [힙딥운동/중둔근운동]">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">단기간 최고의 힙업운동 BEST5 [힙딥운동/중둔근운동]</p>
+                            <img src="힙.png" alt="힙 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="7">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=QSZ0mUGO_CA" target="_blank">
+                            <img src="img_easy3.png" alt="[ENG] (층간소음X, 설명O) 🔥짧고 굵게🔥 복근만들기 2주 챌린지">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">[ENG] (층간소음X, 설명O) 🔥짧고 굵게🔥 복근만들기 2주 챌린지</p>
+                            <img src="복근.png" alt="복근 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="8">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=AQlQSx4fq4o" target="_blank">
+                            <img src="img_easy4.png" alt="1분만에 라운드숄더 교정이 가능할까? ｜어깨 소흉근 스트레칭｜자생한방병원">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">1분만에 라운드숄더 교정이 가능할까? ｜어깨 소흉근 스트레칭｜자생한방병원</p>
+                            <img src="어깨.png" alt="어깨 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="9">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.youtube.com/watch?v=DWYDL-WxF1U" target="_blank">
+                            <img src="img_easy5.png" alt="하체 날, 딱 10분 밖에 없다면 - 스쿼트 10가지 동작 - 하체운동 홈트 루틴">
+                        </a>
+                        <div class="text-container">
+                            <p class="description">하체 날, 딱 10분 밖에 없다면 - 스쿼트 10가지 동작 - 하체운동 홈트 루틴</p>
+                            <img src="하체.png" alt="하체 이미지">
+                            <button class="btn btn-warning add-to-favorites" data-slide-id="10">
+                                <i class="fa-solid fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination2"></div>
+                <div class="swiper-button-next swiper-button-next2"></div>
+                <div class="swiper-button-prev swiper-button-prev2"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Swiper 초기화 -->
+    <script>
+        var swiper1 = new Swiper(".mySwiper1", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination1",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next1",
+                prevEl: ".swiper-button-prev1",
+            },
+        });
+
+        var swiper2 = new Swiper(".mySwiper2", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination2",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next2",
+                prevEl: ".swiper-button-prev2",
+            },
+        });
+    </script>
+
+    <script>
+        // Swiper 초기화
+        var swiper1 = new Swiper(".mySwiper1", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination1",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next1",
+                prevEl: ".swiper-button-prev1",
+            },
+        });
+
+        var swiper2 = new Swiper(".mySwiper2", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination2",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next2",
+                prevEl: ".swiper-button-prev2",
+            },
+        });
+
+        document.getElementById('searchForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var query = document.getElementById('searchInput').value; // 검색어 가져오기
+            var youtubeSearchUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(query); // 유튜브 검색 URL 생성
+            window.location.href = youtubeSearchUrl; // 유튜브 검색 결과 페이지로 이동
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.add-to-favorites').forEach(button => {
+            button.addEventListener('click', function () {
+                const slideId = this.getAttribute('data-slide-id');
+
+                const userConfirmed = confirm('찜 목록에 추가하시겠습니까?');
+
+                if (userConfirmed) {
+                    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+                    if (!favorites.includes(slideId)) {
+                        favorites.push(slideId);
+                        localStorage.setItem('favorites', JSON.stringify(favorites));
+                        alert('찜 목록에 추가되었습니다!');
+                    } else {
+                        alert('이미 찜 목록에 있습니다!');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
