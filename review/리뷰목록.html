@@ -51,16 +51,46 @@
     .search-form {
         text-left: auto;
     }
+
+    body > nav > ul {
+        justify-content: center;
+        align-items: center;
+    }
+
+    body > div:nth-child(6) > form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    body > div:nth-child(6) > form > button {
+        margin-left: 50px;
+    }
+
+    body > div:nth-child(6) > form > input {
+        margin-right: 50px;
+    }
+
+    body > div:nth-child(7) {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    
+    body > div:nth-child(4) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
 <body>
 
     <div class="review-container"></div>
-    <h1 class="title1">운동영상 리뷰💦</h1>
+    <h1 class="title1" style="text-align: center;">운동영상 리뷰💦</h1>
     <hr>
     </div>
-    <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/8SBBp65Sv3c?si=iIMJcva9_B7iq1VZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div >
+        <iframe width="700" height="400" src="https://www.youtube.com/embed/8SBBp65Sv3c?si=iIMJcva9_B7iq1VZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
     </div>
     <hr>
@@ -85,12 +115,32 @@
 
             <tr>
                 <td class="col-number">1</td>
-                <td class="col-title">운동1</td>
+                <td class="col-title">뚫고 나오는 등 만들고 싶으면 이거 봐</td>
                 <td class="col-author">홍길동</td>
                 <td class="col-views">123</td>
                 <td class="col-time">2024-08-30</td>
             </tr>
-            
+            <tr>
+                <td class="col-number">2</td>
+                <td class="col-title">두혁아, 전화 왜 안 받아? 하체 해야지.</td>
+                <td class="col-author">이다영</td>
+                <td class="col-views">83</td>
+                <td class="col-time">2024-08-30</td>
+            </tr>
+            <tr>
+                <td class="col-number">3</td>
+                <td class="col-title">어깨후면.. 저는 이렇게 합니다..</td>
+                <td class="col-author">김혜준</td>
+                <td class="col-views">33</td>
+                <td class="col-time">2024-08-30</td>
+            </tr>
+            <tr>
+                <td class="col-number">4</td>
+                <td class="col-title">[TMI] 한마바키 실물 체험 #44</td>
+                <td class="col-author">이동영</td>
+                <td class="col-views">22</td>
+                <td class="col-time">2024-08-30</td>
+            </tr>
             <br>
 
         </table>
@@ -107,8 +157,6 @@
                 </a>
             </li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>

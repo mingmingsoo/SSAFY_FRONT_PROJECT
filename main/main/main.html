@@ -106,7 +106,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">WORKOUT💪</a>
+                <a class="navbar-brand" href="/main/main/main.html">WORKOUT💪</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -115,7 +115,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/main/main/main.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
@@ -225,7 +225,7 @@
                         </a>
                         <div class="text-container">
                             <p class="description">[TMI] 한마바키 실물 체험 #44</p>
-                            <img src="복근.png" alt="복근 이미지" style="margin-left: 30px;">
+                            <img src="복근.png" alt="복근 이미지">
                             <button class="btn btn-warning add-to-favorites" data-slide-id="4">
                                 <i class="fa-solid fa-heart"></i> 
                             </button>
@@ -388,7 +388,7 @@
 
         document.getElementById('searchForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            var query = document.getElementById('searchInput').value; // 검색어 가져오기
+            var query = document.getElementById('searchInput').value + " 운동"; // 검색어 가져오기
             var youtubeSearchUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(query); // 유튜브 검색 URL 생성
             window.location.href = youtubeSearchUrl; // 유튜브 검색 결과 페이지로 이동
         });
